@@ -1,0 +1,19 @@
+
+body{
+    font-family: $fontfamily;
+    font-size: $fontsize;
+    margin: $margin;
+    background-color: rgb(218, 218, 218);
+    font-weight: null; //null
+    @if $fontWeight {
+        font-weight: 400
+    }
+}
+
+.wrapper {
+    @include layout(100);
+}
+.w30{
+   @include layout(30); 
+}
+

@@ -1,0 +1,236 @@
+/*CSS 註解*/
+// $fontsize : 25px; //註解
+// $fontfamily: Arial, Helvetica, sans-serif;//字串
+// $margin : 10px 20px ; //list
+// $fontColor : #333 ; //color
+
+// $title : (
+//     key : vaule,
+//     h1 : 20px,
+//     h2 : 36px
+// );// ()=> 是map
+
+// h1.title{
+//     font-size: map-get($title, h2);
+// }
+
+// $fontWeight : false; //布林值
+
+
+// body{
+//     font-family: $fontfamily;
+//     font-size: $fontsize;
+//     margin: $margin;
+//     background-color: rgb(218, 218, 218);
+//     font-weight: null; //null
+//     @if $fontWeight {
+//         font-weight: 400
+//     }
+// }
+
+// Sass 檔案名稱 產出檔案名稱
+// ex: sass/style.scss css/style.css
+// 輸入 -w =>會幫你自動編譯 
+//停止監看 Ctrl+c
+
+// ======== 模組組件 ========
+//base
+@import 'base/base';
+@import 'base/color';
+@import 'base/font';
+@import 'base/spacing';
+
+//mixin
+@import "minxin/mixins";
+
+//component
+@import 'component/btn';
+@import 'component/form';
+@import 'component/table';
+@import 'component/title';
+@import 'component/grid';
+
+//layout
+@import 'layout/body';
+@import 'layout/header';
+@import 'layout/footer';
+
+//page
+@import 'page/about';
+@import 'page/index';
+//plugin
+
+//mixin
+
+
+.box{
+    @include center(100px , 100px);
+}
+
+.box_default{
+    @include center(150px, 150px);
+}
+
+.box_large{
+    @include center(300px , 300px);
+}
+
+.card{
+    @include rect(80%, 300px);
+}
+
+// @mixin fontDefault($f){
+//     font-size: $f;
+//     @content;
+// }
+
+// .titles{
+//     @include fontDefault(30px){
+
+//     }
+// }
+
+@mixin m(){
+    @media screen and (max-width: $m){
+        @content;
+    }
+}
+
+
+@mixin t(){
+    @media screen and (max-width: $t){
+        @content;
+
+    }
+}
+
+h1{
+    font-size: 40px;
+    color: #333;
+    @include t(){
+        font-size: 60px;
+        color:  red;
+    }
+
+    @include m(){
+        font-size: 90px;
+        color:  pink;
+    }
+}
+.container
+.h1{
+    @include d(1200px){
+        font-size: 100px;
+        color:  rgb(93, 250, 88);
+    }
+}
+
+@mixin push($num , $dir) {
+    @for $i from 1 through $num {
+    .push#{$dir}-#{$i} {
+        position: relative;
+        #{$dir}: $i * 1px;
+        // margin-left: $i * 1px;
+
+        }
+    }
+
+}
+
+@include push(20, left);
+@include push(20, top);
+
+// .col-1{
+//     width: 8.333333%;
+// }
+// .col-12{
+//     width: 100%;
+// }
+
+// .box{
+//     width: 10px;
+// }
+
+//===== 設定變數 =====
+//字體
+//顏色
+//斷點
+//grid col
+//按鈕尺寸 顏色
+//標題字 大小/顏色
+
+// ==== header ====
+
+// $layout : 80;
+
+// .wrapper {
+//     @if $layout == 100{
+//         width: $layout * 1%;
+//     }
+//     @else if $layout <= 100{
+//         width: $layout * 1%;
+//         margin: auto;
+
+//     }@else{
+//         width: $layout + px;
+//         margin: auto;
+//     }
+  
+
+//     header{
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+
+//         h1.logo{
+//             width: 150px;
+//             height: 80px;
+//             background-color: #5e5e5e;
+//         }
+
+//         nav{
+           
+//             ul{
+//                 list-style: none;
+//                 display: flex;
+//                 li{
+//                     padding: 10px 20px;
+//                     text-align: center;
+//                     background-color: aquamarine;
+//                     color: aliceblue;
+//                     a{
+//                         text-decoration: none;
+//                         color: white;
+//                     }
+//                     &:hover{
+//                         background-color: yellow;
+//                         transition: all .3s;
+//                     }
+//                     &:nth-child(2){
+//                          background-color: pink;
+//                     }
+                   
+//                 }
+//             }
+//         }
+//     }
+
+//     .container{
+
+//     }
+//     footer{
+
+//     }
+// }
+
+// 首頁
+
+// .index{
+//     .container{
+//     .banner{
+//         background-image: url(https://images.pexels.com/photos/14015048/pexels-photo-14015048.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+//         width: 100%;
+//         height: 500px;
+//     }
+//     }
+// }

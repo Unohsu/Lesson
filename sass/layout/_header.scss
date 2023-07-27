@@ -1,0 +1,45 @@
+header{
+    @include layout(1200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1.logo{
+        width: 150px;
+        height: 80px;
+        background-color: #5e5e5e;
+    }
+
+    nav{
+       
+        ul{
+            list-style: none;
+            display: flex;
+            li{
+                padding: 10px 20px;
+                text-align: center;
+                background-color: aquamarine;
+                color: aliceblue;
+                a{
+                    text-decoration: none;
+                    color: white;
+                }
+                &:hover{
+                    background-color: yellow;
+                    transition: all .3s;
+                }
+                &:nth-child(2){
+                     background-color: pink;
+                }
+               
+            }
+        }
+    }
+}
+
+.container{
+
+}
+footer{
+
+}
